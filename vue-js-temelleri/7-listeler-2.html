@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | YazılımBilimi</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="item in list"> {{item}} </li>
+        </ul>
+
+        <hr>
+
+        <div v-for="(value,key) in personel">
+
+            <!-- {{value + " "+ key}} -->
+
+            <strong>{{key}}</strong>
+            <span>{{value}}</span>
+
+        </div>
+
+        <hr>
+        Adet :<input type="text" v-model="sellCount">
+        <ul>
+            <li v-for="product in productList" v-if="product.count > 0">
+                <span> {{product.title}} - {{product.count}} </span>
+                <button @click="product.count = product.count - sellCount">Satıldı</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                sellCount : 0,
+                list: ["Elma", "Armut", "Kiraz"],
+                personel: {
+                    name: "Gökhan",
+                    lastname: "Kademir",
+                    email: "gohhan@gkandemir.com"
+                },
+                productList: [
+                    {
+                        title: "MacBook Pro",
+                        price: 100,
+                        count: 0
+                    },
+                    {
+                        title: "iPhone",
+                        price: 50,
+                        count: 100
+                    },
+                    {
+                        title: "Klavye",
+                        price: 10,
+                        count: 1000
+                    }
+                ]
+            }
+
+        })
+    </script>
+</body>
+
+</html>
+
+<!--
+    NOTLAR :
+
+    Direvtive
+
+    v-for
+        
+
+
+-->

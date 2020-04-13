@@ -1,0 +1,79 @@
+install vue
+
+    npm install -g vue
+
+Proje Coluşturma
+
+    vue create ProjeAdi
+    
+    1. manual select
+    2. Babel, eslint
+    3. enter, enter, enter
+    4. No
+
+    5. npm run serve
+
+
+src 
+    işlemlerin yapılacağı klasör
+
+public
+    statik dosyaların barndığı yer
+
+## ## ## ## ## ## ## ## 
+
+App.vue 
+    Uygulamanın ana derleniği yer bu dosyadır.
+    
+    Compenetler
+
+        A. Template (zorunludur)
+            
+            Bir tane root html elementi (div) içermek zorundarıdr. 
+            id si app olan kısma denk gelir. 
+
+        B. script (tercihli)
+            
+            export default {} (single file component)
+            
+            data obje gibi tanımlanmaz XXX
+                [ 
+                    data : { 
+
+                    } 
+                ]               
+            fonksiyon olmak zorundadır 
+                [ 
+                    data() { 
+                        return {
+                            text : "abc..."
+                        }
+                    }
+                ]
+
+        C. style (tercihli)
+
+// companent import etmek 
+import MainContainer from "@/components/MainContainer"            
+
+<script>
+import MainContainer from "@/components/MainContainer"
+import Product from "@/components/Product"
+export default {
+  components : {
+    myComp : MainContainer,
+    Product    
+  }
+}
+</script>
+
+
+
+main.js 
+    vue constract buraya konuluyor. 
+
+## ## ## ## ## ## ## ## 
+
+verileri dışarıdan almak için kullanılan eklenti
+
+npm install --save axios

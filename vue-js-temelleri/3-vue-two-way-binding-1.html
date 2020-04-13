@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | YazılımBilimi</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- <input type="text" :value="sayi"> -->
+        <input type="text" v-model="sayi">
+        <p>{{sayi}}</p>
+        <button @click="artir"> Arttır </button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                sayi: 1402
+            },
+           methods: {
+               artir(){
+                   this.sayi++
+               }
+           }
+        })
+
+    </script>
+</body>
+
+</html>
+
+<!--
+    NOTLAR :
+
+        two way databinding 
+
+        (template (html) ile Vue instanse arasında bağlantı kurmamıza sağlar,
+        herhangi birisi değiştiğinde diğer yöndeki de değişir.
+        sürekli bir dinleme varmış gibi değerlendirilir.)
+
+        ( v-bind => : ) 
+
+        * reacktive properties
+
+
+-->

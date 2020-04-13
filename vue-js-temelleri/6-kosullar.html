@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | YazılımBilimi</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="showBox = !showBox">göster</button>
+
+        <p v-if="showBox" >  bu sayfa açıldığında gösterilecek</p>
+        <p v-if="!showBox" > bu sayfa açıldığında gösterilmeyecek, buton yardımıyya gözükecek...</p>
+        
+        <p v-else-if="!showBox" > bu sayfa açıldığında gösterilmeyecek, buton yardımıyya gözükecek...</p>
+        <p v-else> aksi halde gözükecek bölüm </p>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                showBox: false,
+            }
+
+        })
+    </script>
+</body>
+
+</html>
+
+<!--
+    NOTLAR :
+
+    Directives
+     
+    v-if, v-else-if, v-else
+        
+
+
+-->

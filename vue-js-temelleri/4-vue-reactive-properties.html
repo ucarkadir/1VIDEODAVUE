@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | YazılımBilimi</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" v-model="age">
+        <p> JavaScript = {{age >= 18 ? 'Reşittir' : 'Değildir'}}</p>
+
+        <p> Method = {{ agewriter()}} </p>
+        <hr>
+        <p> Computed = {{agewriterComp}}</p>
+        <p>{{sayi}}</p>
+        <button @click="sayi++">sayi arttır</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                age: 0,
+                sayi: 0
+            },
+            methods: {
+                agewriter(value) {
+                    console.log("method çalıştı")
+                    return this.age >= 18 ? 'Reşittir' : 'Değildir'
+                }
+            },
+            computed: {
+                agewriterComp() {
+                    console.log("computed çalıştı")
+                    return this.age >= 18 ? 'Reşittir' : 'Değildir'
+
+                }
+            },
+            watch: {
+                age(newValue, oldValue) {
+                    console.log('new :'+ newValue)
+                    console.log('old :' + oldValue)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<!--
+    NOTLAR :
+
+        computed properties
+
+        bir değişkenin değere değiştininde başka bir değişkenind değerini otomatik 
+        değiştirmek istiyor iseniz. 
+
+        Yöntemler 
+
+        1. <p>{{age >= 18 ? 'Reşittir' : 'Değildir'}}</p>
+        2. methods : agewriter
+    
+
+        methdoslar için çalışma mantığı 
+        sayi arttırdığımızda agewriter metodu da çalışmaktadır. 
+        
+        Vue;
+            el içindeki template de herhangi bir değişilik tespit ettiği anda
+            yeni veriler ile birlikte yeni bir html yapısı oluşturuyor, 
+            her yeniden oluşturulduğunda templatedi her şey yeniden 
+            dom a yapıştırılıyor. 
+            bu herdefasında yeniden oluşturulmayı sorunu için [computed] 
+            yapısı kullanılıyor.
+        
+            [computed]
+
+            computed methodlara çalıştırabilmek için parantez koymamıza gerek yoktur.
+            reaktif olarak kendi kendine çalıştığı için parantez gerek yok.
+            computed içerisinde tanımlı method değişkenlerinin herhangi bir değişmedği sürece
+            çalışmaz, render edilmez
+
+            [watch]
+
+            herhangi bir veriyi anlık olarak izlememizi sağlar. 
+
+
+
+
+-->

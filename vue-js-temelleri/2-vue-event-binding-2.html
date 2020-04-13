@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | YazılımBilimi</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- <input type="text" v-on:keypress="keyp($event)"> -->
+        <input type="text" @keypress="keyp($event)">
+        
+        <!-- <button v-on:click="arttir()">arttır</button> -->
+        <button @click="arttir()">arttır</button> 
+
+        <p>{{sayi}}</p> 
+    </div>
+
+    <script>
+        new Vue({
+            el : "#app", 
+            data :{
+                sayi : 0
+            }, 
+            methods : {
+                arttir(){
+                    this.sayi++
+                },
+                keyp(gelenEvent){
+                    console.log(gelenEvent.target.value)
+                    console.log(gelenEvent.keyCode)
+
+                    if(gelenEvent.keyCode == 13){
+                        // alert(gelenEvent.target.value)
+                        this.sayi += parseInt(gelenEvent.target.value)
+                    }
+                }
+            }
+
+        })
+            
+    </script>
+</body>
+
+</html>
+
+<!--
+    NOTLAR :
+
+    Uyarı:
+    Vue instance içerisinden herhangi bir şeye erişmek istiyor isem
+    [this] anahtar kelimesini kullanmak zorundayiz, 
+
+    result keyword vue sabit [ $event ]
+    
+
+    two way databinding
+
+    Yazım Kısayolları: 
+        v-on => @xxx
+        v-bind => : (ikinokta)
+
+
+        
+
+
+
+-->

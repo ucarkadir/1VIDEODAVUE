@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | YazılımBilimi</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <h3>{{title}}</h3>
+        <button>{{buttonTitle}}</button>
+
+        <p>{{paragrahp}}</p>
+        <p v-text="paragrahp"></p>
+
+        <!-- <a v-bind:href="link" v-bind:data-id="dataId">Videosinif</a> -->
+        <a :href="link" :data-id="dataId">Videosinif</a>
+       
+        <!-- <p>{{details}}</p> -->
+        <p v-html="details"></p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                title: "test başlık",
+                buttonTitle: "Tıkla gelsin ...",
+                paragrahp: "lorem ipsu dolar sit amet",
+                link: "https://www.videosinif.com",
+                dataId: "1",
+                details: "<b> bu bir haber detayıdır. ... </b>"
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+<!--
+    NOTLAR :
+
+    new Vue() nesne oluşturulur (instance) iken, 
+    controctor yapısına {} ile özelliklerini belirliyoruz (set)  
+    
+    String İnterpolition {{}} iki tane süslü parantez
+
+    * diretive: 
+    
+    Bir element eeklenildiğin o elemente var olmayan işler yapmaya sağlayabilri
+    daha esnek çalışabilir
+
+    bir elementi özelleştirmeye sağlayan küçük anahtar kelimelerdir. 
+    
+    Ör: v-bind:xxx
+    iki nokta xxx aralarında boşluk olmamalıdır. 
+
+
+
+-->
